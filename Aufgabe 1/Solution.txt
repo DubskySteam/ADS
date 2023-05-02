@@ -1,0 +1,78 @@
+Aufgabe 1
+
+Seg1
+____
+IF => n-j
+PRINT => ((n-j)//3)+1 => +1 ist variable da wir nicht wissen ob J durch 3 teilbar ist.
+
+Seg2
+____
+IF => (n-a)*(4-2)
+PRINT => ((n-a)*4-2)-runden((n-a/2))
+
+
+
+Aufgabe 2
+
+for1: n
+for2: n-1
+print1,2: n²-1
+if: n²-1
+print3,4: n²-1/2 
+
+
+AUSWERTUNG
+___________
+n = 30
+
+n³ = 27_000
+nx = 4_960
+
+(Python)
+Additions: 4495
+Runtime: 3.966093063354492 ms
+(Java)
+Additions 4495
+Runtime 1ms
+
+n = 300
+
+n³ = 27_000_000
+nx = 4_545_100
+
+(Python)
+Additions: 4499950
+Runtime: 625.0383853912354 ms
+(Java)
+Additions 4499950
+Runtime 32ms
+
+n = 3000
+
+n³ = 27_000_000_000
+nx = 4_504_501_000
+
+(Python)
+Additions: X
+Runtime: X ms
+(Java)
+Additions 205032204
+Runtime 4552ms
+
+
+
+Interpretierung
+___________
+Java ist eine zum teil kompilierte Sprache die in Byte Code durch einen Interpreter geschickt wird.
+Dadurch wird die Übersetzung von Code -> Maschinencode abgekürzt.
+Python dagegen übersetzt den Code noch zur Laufzeit.
+
+Daher genau wie erwartet.
+
+
+
+Spezifikation
+___________
+
+Eingabe: (a_n) n € N
+Ausgabe: a_n mit a_n < a_n-1 < ... < a1
