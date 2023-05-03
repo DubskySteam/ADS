@@ -12,7 +12,7 @@ O(n), da die Vorschleife in rechtesRandmax von re bis li n-mal runterzählt und 
 O(1), da jede Zeile 1x aufgerufen wird.
 
 3.3
-O(1), da sich nur die Aufrufe der Funktion verändern, aber nicht die Aufrufe der Zeilen der Funktion
+O(n)*f(n)
 
 3.4
 Anzahl der Folgeglieder = 2^n mit n = die Anzahl der Halbierungen. Daraus resultiert, dass man die genannten Folgen n = log2(Anzahl der Folgeglieder) Mal halbieren kann  
