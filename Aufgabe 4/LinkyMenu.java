@@ -36,7 +36,7 @@ public class LinkyMenu {
         switch(x) {
             case 'N' -> {
                 list = new LinkyList();
-                System.out.println("List was reset");
+                System.out.println("List was created/reset");
             }
             case 'L' -> {
                 list = null;
@@ -45,19 +45,37 @@ public class LinkyMenu {
             case 'Z' -> {
                 if(list != null) {
                     list.print();
+                } else {
+                    System.out.println("List is null");
                 }
             }
             case 'e' -> {
-                
+                if(list != null) {
+                    list.insert(readLine());
+                } else {
+                    System.out.println("List is null");
+                }
             }
             case 's' -> {
-                
+                if(list != null) {
+                    list.search(readLine());
+                } else {
+                    System.out.println("List is null");
+                }
             }
             case 'l' -> {
-                
+                if(list != null) {
+                    list.remove();
+                } else {
+                    System.out.println("List is null");
+                }
             }
             case 'm' -> {
-                
+                if(list != null) {
+                    list.modify(readLine());
+                } else {
+                    System.out.println("List is null");
+                }
             }
             case 'X' -> {
                 scanner.close();

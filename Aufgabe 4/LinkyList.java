@@ -5,10 +5,14 @@
 public class LinkyList {
 
     Node head;
-    Node tail;
-    int listSize;
+    Node current;
 
-    class Node {
+    public LinkyList() {
+        this.head = null;
+        this.current = null;
+    }
+
+    private class Node {
         String data;
         Node next;
 
@@ -16,31 +20,87 @@ public class LinkyList {
             this.data = data;
             this.next = null;
         }
+    }
 
-        Node (String data, Node next) {
-            this.data = data;
-            this.next = next;
+    void insert(String data) {
+        if(this.head == null) {
+            this.head = new Node(data);
+        } else {
+            current = this.head;
+            while(this.current.next != null) {
+                this.current = this.current.next;
+            }
+            this.current.next = new Node(data);
+            this.current = this.head;
         }
+    }
+    
+    void setNextElem(Node node) {
+        Node next = this.getNextElem();
+        node.next = next;
+        this.current.next = node;
+    }
 
-        void setNextElem(Node next) {
-            this.next = next;
-        }
+    Node getNextElem() {
+        return this.current.next;
+    }
 
-        Node getNextElem() {
-            return this.next;
+    void removeNextElem(Node node) {
+        if(node.next != null && node.next.next != null) {
+            node.next = node.next.next;
+        } else {
+            node.next = null;
         }
+    }
 
-        void removeNextElem() {
-            this.next = null;
-        }
+    void setPrevElem(Node node) {
+        Node prev = this.getPrevElem();
+        prev.next = node;
+        prev.next.next = this.current;
+    }
 
-        void setPrevElem(Node prev) {
-            this.next = prev;
+    Node getPrevElem() {
+        Node prev = this.head;
+        while(prev.next != this.current) {
+            prev = prev.next;
         }
+        return prev;
+    }
 
-        Node getPrevElem() {
-            return this.next;
+    void modify(String data) {
+        this.current.data = data;
+    }
+
+    void remove() {
+        if(this.current == this.head) {
+            this.head = this.head.next;
+            this.current = this.head;
+        } else {
+            Node prev = this.getPrevElem();
+            prev.next = this.current.next;
+            this.current = prev;
         }
+    }
+
+    void search(String criteria) {
+        this.current = this.head;
+        while(this.current != null) {
+            if(this.current.data.equals(criteria)) {
+                String prev = "null";
+                String next = "null";
+                if(this.head != this.current && getPrevElem() != null) {
+                    prev = getPrevElem().data;
+                }
+                if(getNextElem() != null) {
+                    next = getNextElem().data;
+                }
+                System.out.printf("Found %s >>> [Prev: %s] [Next: %s]\n", this.current.data, prev, next);
+                return;
+            }
+            this.current = this.current.next;
+        }
+        this.current = this.head;
+        System.out.println("No match found");
     }
 
     public void print() {
