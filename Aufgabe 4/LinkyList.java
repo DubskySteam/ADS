@@ -2,7 +2,7 @@
  * @author Clemens Maas
  * @matrikelnummer 1260892
  */
-public class Listen {
+public class LinkyList {
 
     Node head;
     Node tail;
@@ -41,10 +41,6 @@ public class Listen {
         Node getPrevElem() {
             return this.next;
         }
-    }
-
-    public static void main(String[] args) {
-        
     }
 
 }
