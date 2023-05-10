@@ -31,7 +31,7 @@ public class Ring {
             return;
         }
         buffer[tail] = element;
-        tail = (tail + 1);
+        tail = tail + 1;
         size++;
     }
 
@@ -41,7 +41,7 @@ public class Ring {
             return 0;
         }
         int element = buffer[head];
-        head = (head + 1);
+        head = head + 1;
         size--;
         return element;
     }
@@ -55,7 +55,7 @@ public class Ring {
         int i = head;
         while (i != tail) {
             System.out.print(buffer[i] + " ");
-            i = (i + 1) % buffer.length;
+            i = i + 1;
         }
         System.out.println();
     }
