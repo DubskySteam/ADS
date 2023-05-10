@@ -43,4 +43,13 @@ public class LinkyList {
         }
     }
 
+    public void print() {
+        Node ohead = this.head;
+        while(head != null) {
+            System.out.println(head.data);
+            head = head.next;
+        }
+        head = ohead;
+    }
+
 }

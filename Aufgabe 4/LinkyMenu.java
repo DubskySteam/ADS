@@ -12,7 +12,8 @@ public class LinkyMenu {
         e,
         s,
         l,
-        m
+        m,
+        X
     }
 
     private char readInput() {
@@ -35,12 +36,16 @@ public class LinkyMenu {
         switch(x) {
             case 'N' -> {
                 list = new LinkyList();
+                System.out.println("List was reset");
             }
             case 'L' -> {
-                
+                list = null;
+                System.out.println("List was deleted");
             }
             case 'Z' -> {
-                
+                if(list != null) {
+                    list.print();
+                }
             }
             case 'e' -> {
                 
@@ -54,13 +59,22 @@ public class LinkyMenu {
             case 'm' -> {
                 
             }
+            case 'X' -> {
+                scanner.close();
+                System.exit(0);
+            }
+            default -> {
+                System.out.println("Invalid Option");
+            }
         }
     }
 
     public void run() {
         System.out.println("--- OPTIONS ---");
         followUp();
-        select(readInput());
+        while(true) {
+            select(readInput());
+        }
     }
 
 }
