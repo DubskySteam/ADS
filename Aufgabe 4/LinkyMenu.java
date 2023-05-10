@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+/**
+ * @author Clemens Maas
+ * @matrikelnummer 1260892
+ */
 public class LinkyMenu {
     
     private LinkyList list = new LinkyList();

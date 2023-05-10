@@ -2,6 +2,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @author Clemens Maas
+ * @matrikelnummer 1260892
+ */
 public class SimpleStack {
 
     private Scanner scanner = new Scanner(System.in);
