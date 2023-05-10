@@ -79,7 +79,7 @@ public class SimpleStack {
                 }
                 case 2 -> {
                     System.out.println("--- TOP ---");
-                    ss.stack.top();
+                    System.out.println(ss.stack.top());
                 }
                 case 3 -> {
                     System.out.println("--- STACK ---");
