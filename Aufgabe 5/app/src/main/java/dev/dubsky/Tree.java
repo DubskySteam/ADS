@@ -40,14 +40,47 @@ public class Tree {
         }
     }
 
-    public void search(Node node, String s) {
-        if (node != null) {
-            if (node.value.equals(s)) {
-                System.out.println("Found: " + node.value);
+    public Node search(Node node, String s) {
+        if (node == null) {
+            return null;
+        } else if (node.value.equals(s)) {
+            return node;
+        } else if (s.compareTo(node.value) < 0) {
+            return search(node.left, s);
+        } else {
+            return search(node.right, s);
+        }
+    }
+
+    public void delete(String value) {
+        Node toDelete = search(this.root, value);
+        if (toDelete != null) {
+            if (toDelete.left == null && toDelete.right == null) {
+                // No children
+                System.out.println("No children");
+                toDelete = null;
+            } else if (toDelete.left != null && toDelete.right == null) {
+                // Only left child
+                toDelete = toDelete.left;
+            } else if (toDelete.left == null && toDelete.right != null) {
+                // Only right child
+                toDelete = toDelete.right;
             } else {
-                search(node.left, s);
-                search(node.right, s);
+                // Both children
+                Node current = toDelete.right;
+                while (current.left != null) {
+                    current = current.left;
+                }
+                toDelete.value = current.value;
+                current = null;
             }
+        }
+    }
+
+    public void modify(String oldValue, String newValue) {
+        Node toModify = search(this.root, oldValue);
+        if (toModify != null) {
+            toModify.value = newValue;
         }
     }
 
@@ -58,6 +91,8 @@ public class Tree {
         System.out.print(this.root.value + " ");
         // Right tree
         print(this.root.right);
+
+        System.out.println();
     }
 
     public void print(Node node) {

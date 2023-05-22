@@ -14,6 +14,9 @@ public class Main {
         t.insert("C");
         t.insert("E");
         t.print();
+        //t.delete("E");
+        t.modify("E", "G");
+        t.print();
     }
     
 }
