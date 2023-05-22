@@ -5,11 +5,15 @@ package dev.dubsky;
  * @since 2023-05-22
  */
 public class Main {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new Main().getGreeting());
+        Tree t = new Tree();
+        t.insert("D");
+        t.insert("B");
+        t.insert("A");
+        t.insert("C");
+        t.insert("E");
+        t.print();
     }
+    
 }
