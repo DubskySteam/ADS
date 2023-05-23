@@ -94,6 +94,11 @@ public class Node {
         return root;
     }
 
+    /**
+     * Finds the minimum node in the tree.
+     * @param root Root node
+     * @return Minimum node
+     */
     public Node findMin(Node root) {
         if (root == null) {
             return null;
@@ -102,6 +107,32 @@ public class Node {
             root = root.left;
         }
         return root;
+    }
+
+    /**
+     * Prints the tree in pre-order.
+     * @param root Root node
+     */
+    public void printTree_pre_order(Node root) {
+        if (root == null) {
+            return;
+        }
+        System.out.println(root.value);
+        printTree_pre_order(root.left);
+        printTree_pre_order(root.right);
+    }
+
+    /**
+     * Prints the tree in in-order.
+     * @param root Root node
+     */
+    public void printTree_in_order(Node root) {
+        if (root == null) {
+            return;
+        }
+        printTree_in_order(root.left);
+        System.out.println(root.value);
+        printTree_in_order(root.right);
     }
 
     /**
