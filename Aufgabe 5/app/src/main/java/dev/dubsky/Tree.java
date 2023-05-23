@@ -96,17 +96,22 @@ public class Tree {
 
     /**
      * Traverses the tree in pre-order and prints the values of the nodes.
+     * Kickstarts the recursive function.
      */
     public void preOrderTraversal() {
         preOrderTraversal(root);
         System.out.println();
     }
 
+    /**
+     * Traverses the tree in pre-order and prints the values of the nodes.
+     * @param node Current node
+     */
     private void preOrderTraversal(Node node) {
         if (node != null) {
-            System.out.print(node.value + " ");  // Process the node
-            preOrderTraversal(node.left);        // Recursively traverse the left subtree
-            preOrderTraversal(node.right);       // Recursively traverse the right subtree
+            System.out.print(node.value + " ");
+            preOrderTraversal(node.left);
+            preOrderTraversal(node.right);
         }
     }
 
