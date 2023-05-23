@@ -44,12 +44,28 @@ public class Node {
         return root;
     }
 
+    /**
+     * Searches for a node with the given value.
+     * Will then delete the node and insert a new node with the new value.
+     * Old approach: Modify the value of the node.
+     * New approach: Delete the node and insert a new node with the new value.
+     * @param root Root node
+     * @param oldValue Old value
+     * @param newValue New value
+     * @return Root node
+     */
     public Node modify(Node root, String oldValue, String newValue) {
         root = delete(root, oldValue);
         root = insert(root, newValue);
         return root;
     }
 
+    /**
+     * Deletes a node with the given value.
+     * @param root Root node
+     * @param value Value of the node to delete
+     * @return Root node
+     */
     public Node delete(Node root, String value) {
         if (root == null) {
             return null;
