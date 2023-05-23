@@ -3,6 +3,7 @@ package dev.dubsky;
 /**
  * @author Clemens Maas
  * @since 2023-05-22
+ * @deprecated 2023-05-23 Aufgabe falsch verstanden :)
  */
 public class Tree {
     Node root;
