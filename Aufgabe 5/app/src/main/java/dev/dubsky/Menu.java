@@ -9,7 +9,7 @@ public class Menu {
     private static Menu instance;
 
     enum MenuOption {
-        INSERT, SEARCH, PRINT, EXIT
+        INSERT, SEARCH, MODIFY, PRINT_PRE_ORDER, PRINT_IN_ORDER, EXIT
     }
 
     public static Menu getInstance() {
@@ -36,7 +36,7 @@ public class Menu {
      * Starts the menu.
      */
     public void start() {
-        Tree t = new Tree();
+        Node t = new Node("Finn");
         MenuOption option = MenuOption.INSERT;
         while (option != MenuOption.EXIT) {
             option = getInput();
@@ -54,9 +54,13 @@ public class Menu {
                         System.out.println("Node not found");
                     }
                 }
-                case PRINT -> {
+                case PRINT_PRE_ORDER -> {
                     System.out.println("Printing tree:");
-                    t.preOrderTraversal();
+                    t.print_pre_order();
+                }
+                case PRINT_IN_ORDER -> {
+                    System.out.println("Printing tree:");
+                    t.print_in_order();
                 }
                 case EXIT -> {
                     System.out.println("Exiting...");
