@@ -15,6 +15,13 @@ public class Tree {
         return this.root == null;
     }
 
+    /**
+     * Inserts a new node into the tree.
+     * Key is the value of the node.
+     * To guarantee the tree is sorted, the value is compared to the current node.
+     * Lexicographically smaller values are inserted to the left, bigger ones to the right.
+     * @param value
+     */
     public void insert(String value) {
         if (this.root == null) {
             this.root = new Node(value);
@@ -40,6 +47,12 @@ public class Tree {
         }
     }
 
+    /**
+     * Searches for a node with the given value.
+     * @param node Current node
+     * @param s Value to search for
+     * @return
+     */
     public Node search(Node node, String s) {
         if (node == null) {
             return null;
@@ -52,6 +65,10 @@ public class Tree {
         }
     }
 
+    /**
+     * Deletes a node with the given value.
+     * @param value Value to delete
+     */
     public void delete(String value) {
         Node toDelete = search(this.root, value);
         if (toDelete != null) {
@@ -77,6 +94,11 @@ public class Tree {
         }
     }
 
+    /**
+     * Modifies a node with the given value.
+     * @param oldValue Value to modify
+     * @param newValue New value
+     */
     public void modify(String oldValue, String newValue) {
         Node toModify = search(this.root, oldValue);
         if (toModify != null) {
