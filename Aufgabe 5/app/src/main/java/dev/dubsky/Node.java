@@ -117,7 +117,10 @@ public class Node {
         if (root == null) {
             return;
         }
-        System.out.println(root.value);
+        System.out.print(root.value + "(h" + root.height + ") : ");
+        System.out.print((root.left != null ? root.left.value + "(h" + root.left.height + ")" : "null") + ", ");
+        System.out.print((root.right != null ? root.right.value + "(h" + root.right.height + ")" : "null"));
+        System.out.println();
         printTree_pre_order(root.left);
         printTree_pre_order(root.right);
     }

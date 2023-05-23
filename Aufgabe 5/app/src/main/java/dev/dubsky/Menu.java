@@ -25,10 +25,12 @@ public class Menu {
      */
     public MenuOption getInput() {
         System.out.println("Choose an option:");
-        System.out.println("1. Insert");
-        System.out.println("2. Search");
-        System.out.println("3. Print");
-        System.out.println("4. Exit");
+        System.out.println("1. INSERT");
+        System.out.println("2. MODIFY");
+        System.out.println("3. DELETE");
+        System.out.println("4. PRINT_PRE_ORDER");
+        System.out.println("5. PRINT_IN_ORDER");
+        System.out.println("6. EXIT");
         return MenuOption.values()[Integer.parseInt(System.console().readLine()) - 1];
     }
 
@@ -36,7 +38,7 @@ public class Menu {
      * Starts the menu.
      */
     public void start() {
-        Node t = new Node("Finn");
+        Node t = new Node("ROOT");
         MenuOption option = MenuOption.INSERT;
         while (option != MenuOption.EXIT) {
             option = getInput();
