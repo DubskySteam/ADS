@@ -95,6 +95,22 @@ public class Tree {
     }
 
     /**
+     * Traverses the tree in pre-order and prints the values of the nodes.
+     */
+    public void preOrderTraversal() {
+        preOrderTraversal(root);
+        System.out.println();
+    }
+
+    private void preOrderTraversal(Node node) {
+        if (node != null) {
+            System.out.print(node.value + " ");  // Process the node
+            preOrderTraversal(node.left);        // Recursively traverse the left subtree
+            preOrderTraversal(node.right);       // Recursively traverse the right subtree
+        }
+    }
+
+    /**
      * Modifies a node with the given value.
      * @param oldValue Value to modify
      * @param newValue New value
