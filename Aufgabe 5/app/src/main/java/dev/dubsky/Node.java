@@ -24,6 +24,71 @@ public class Node {
     }
 
     /**
+     * Inserts a new node into the tree.
+     * @param root Root node
+     * @param value Value of the node to insert
+     * @return Root node
+     */
+    public Node insert(Node root, String value) {
+        if (root == null) {
+            return new Node(value);
+        }
+        if (value.compareTo(root.value) < 0) {
+            root.left = insert(root.left, value);
+        } else if (value.compareTo(root.value) > 0) {
+            root.right = insert(root.right, value);
+        } else {
+            System.out.println("Value already exists in the tree.");
+        }
+        root.height = Math.max(getHeight(root.left), getHeight(root.right)) + 1;
+        return root;
+    }
+
+    public Node modify(Node root, String oldValue, String newValue) {
+        root = delete(root, oldValue);
+        root = insert(root, newValue);
+        return root;
+    }
+
+    public Node delete(Node root, String value) {
+        if (root == null) {
+            return null;
+        }
+        if (value.compareTo(root.value) < 0) {
+            root.left = delete(root.left, value);
+        } else if (value.compareTo(root.value) > 0) {
+            root.right = delete(root.right, value);
+        } else {
+            if (root.left == null && root.right == null) {
+                root = null;
+            } else if (root.left == null) {
+                root = root.right;
+            } else if (root.right == null) {
+                root = root.left;
+            } else {
+                Node minNode = findMin(root.right);
+                root.value = minNode.value;
+                root.right = delete(root.right, minNode.value);
+            }
+        }
+        if (root == null) {
+            return null;
+        }
+        root.height = Math.max(getHeight(root.left), getHeight(root.right)) + 1;
+        return root;
+    }
+
+    public Node findMin(Node root) {
+        if (root == null) {
+            return null;
+        }
+        while (root.left != null) {
+            root = root.left;
+        }
+        return root;
+    }
+
+    /**
      * Checks if the node is empty.
      * @return True if the node is empty, false otherwise
      */
