@@ -23,6 +23,10 @@ public class Node {
         this.height = Math.max(left.height, right.height) + 1;
     }
 
+    /**
+     * Checks if the node is empty.
+     * @return True if the node is empty, false otherwise
+     */
     public boolean is_empty() {
         return this.value == null;
     }
@@ -36,6 +40,13 @@ public class Node {
         return node == null ? 0 : node.height;
     }
 
+    /**
+     * Returns a new tree node with the given value.
+     * @param value Value of the node
+     * @param left Left child
+     * @param right Right child
+     * @return New tree node
+     */
     public Node bin(String value, Node left, Node right) {
         return new Node(value, left, right);
     }
