@@ -106,24 +106,5 @@ public class Tree {
         }
     }
 
-    public void print() {
-        // Left tree
-        print(this.root.left);
-        // Root
-        System.out.print(this.root.value + " ");
-        // Right tree
-        print(this.root.right);
 
-        System.out.println();
-    }
-
-    public void print(Node node) {
-        if (node != null) {
-            System.out.print(node.value + " ");
-            // Left tree
-            print(node.left);
-            // Right tree
-            print(node.right);
-        }
-    }
 }
