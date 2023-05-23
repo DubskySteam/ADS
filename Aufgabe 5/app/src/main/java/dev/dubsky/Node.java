@@ -27,6 +27,15 @@ public class Node {
         return this.value == null;
     }
 
+    /**
+     * Gets the height of the node.
+     * @param node Node to get the height of
+     * @return Height of the node
+     */
+    private int getHeight(Node node) {
+        return node == null ? 0 : node.height;
+    }
+
     public Node bin(String value, Node left, Node right) {
         return new Node(value, left, right);
     }
