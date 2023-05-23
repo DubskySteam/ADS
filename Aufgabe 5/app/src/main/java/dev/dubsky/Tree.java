@@ -11,9 +11,8 @@ public class Tree {
         this.root = null;
     }
 
-    boolean isEmpty() {
-        return this.root == null;
-    }
+
+
 
     /**
      * Inserts a new node into the tree.
