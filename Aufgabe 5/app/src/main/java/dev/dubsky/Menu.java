@@ -9,7 +9,7 @@ public class Menu {
     private static Menu instance;
 
     enum MenuOption {
-        INSERT, SEARCH, MODIFY, PRINT_PRE_ORDER, PRINT_IN_ORDER, EXIT
+        INSERT, SEARCH, MODIFY, DELETE, PRINT_PRE_ORDER, PRINT_IN_ORDER, EXIT
     }
 
     public static Menu getInstance() {
@@ -43,16 +43,20 @@ public class Menu {
             switch (option) {
                 case INSERT -> {
                     System.out.println("Insert a new node:");
-                    t.insert(System.console().readLine());
+                    t.insert(t, System.console().readLine());
                 }
                 case SEARCH -> {
                     System.out.println("Search for a node: ");
-                    Node n = t.search(t.root, System.console().readLine());
+                    Node n = t.search(t, System.console().readLine());
                     if (n != null) {
                         System.out.println("Found node with value " + n.value);
                     } else {
                         System.out.println("Node not found");
                     }
+                }
+                case DELETE -> {
+                    System.out.println("Delete a node: ");
+                    t.delete(t, System.console().readLine());
                 }
                 case PRINT_PRE_ORDER -> {
                     System.out.println("Printing tree:");
