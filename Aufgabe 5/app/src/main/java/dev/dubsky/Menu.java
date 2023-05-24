@@ -24,13 +24,13 @@ public class Menu {
      * @return Selected option
      */
     public MenuOption getInput() {
-        System.out.println("Choose an option:");
+        System.out.println("--- MENU ---");
         System.out.println("1. INSERT");
         System.out.println("2. MODIFY");
         System.out.println("3. DELETE");
         System.out.println("4. PRINT_PRE_ORDER");
         System.out.println("5. PRINT_IN_ORDER");
-        System.out.println("6. EXIT");
+        System.out.print("6. EXIT\nCHOICE >> ");
         return MenuOption.values()[Integer.parseInt(System.console().readLine()) - 1];
     }
 
@@ -44,27 +44,35 @@ public class Menu {
             option = getInput();
             switch (option) {
                 case INSERT -> {
-                    System.out.println("Insert a new node:");
+                    System.out.print("\n[INSERT]\nString >> ");
                     t.insert(t, System.console().readLine());
                 }
                 case DELETE -> {
-                    System.out.println("Delete a node: ");
+                    System.out.print("\n[DELETE]\nString >> ");
                     t.delete(t, System.console().readLine());
                 }
+                case MODIFY -> {
+                    System.out.print("\n[MODIFY]\nCurrent String >> ");
+                    String oldValue = System.console().readLine();
+                    System.out.print("New String >> ");
+                    String newValue = System.console().readLine();
+                    t.modify(t, oldValue, newValue);
+                }
                 case PRINT_PRE_ORDER -> {
-                    System.out.println("--- Printing tree: ---");
+                    System.out.println("\n--- TREE || PRE_ORDER ---");
                     t.printTree_pre_order(t);
                 }
                 case PRINT_IN_ORDER -> {
-                    System.out.println("--- Printing tree: ---");
+                    System.out.println("\n--- TREE || IN_ORDER ---");
                     t.printTree_in_order(t);
                 }
                 case EXIT -> {
-                    System.out.println("Exiting...");
+                    System.out.print("\nExiting...");
                     System.exit(0);
                 }
-                default -> throw new IllegalArgumentException("Unexpected value: " + option);
+                default -> throw new IllegalArgumentException("\nUnexpected value: " + option);
             }
+            System.console().readLine();
         }
     }
 
