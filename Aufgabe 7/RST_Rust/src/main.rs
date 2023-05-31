@@ -52,6 +52,15 @@ fn heap_sort(heap: &Vec<i32>) -> Vec<i32> {
     sorted_array
 }
 
+fn sort_heap(heap: &mut Vec<i32>) {
+    let heap_size = heap.len();
+
+    for i in (1..heap_size).rev() {
+        heap.swap(0, i);
+        heapify_down(&mut heap[..i], 0);
+    }
+}
+
 fn read_file(filename: &str) -> Result<Vec<i32>, io::Error> {
     let file = File::open(filename)?;
     let reader = io::BufReader::new(file);
@@ -77,6 +86,7 @@ fn main() {
         println!("e : Einfügen eines Elements in den Heap");
         println!("l : Löschen des kleinsten Elements aus dem Heap");
         println!("s : Sortiertes Ausgeben des Heaps (HeapSort durchführen)");
+        println!("s2 : Sortieren des Heaps (HeapSort durchführen)");
         println!("a : Ausgeben des Arrays");
         println!("n : Einlesen einer Datei");
 
@@ -101,6 +111,11 @@ fn main() {
             "s" => {
                 let sorted_array = heap_sort(&heap);
                 println!("Sortiertes Array: {:?}", sorted_array);
+            }
+            "s2" => {
+                sort_heap(&mut heap);
+                println!("Heap sortiert!");
+                println!("Array: {:?}", heap);
             }
             "a" => {
                 println!("Array: {:?}", heap);
