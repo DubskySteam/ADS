@@ -78,7 +78,7 @@ fn main() {
         println!("l : Löschen des kleinsten Elements aus dem Heap");
         println!("s : Sortiertes Ausgeben des Heaps (HeapSort durchführen)");
         println!("a : Ausgeben des Arrays");
-        println!("n : Erneutes Einlesen der Datei");
+        println!("n : Einlesen einer Datei");
 
         let choice = read_line();
 
